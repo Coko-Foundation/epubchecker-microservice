@@ -4,7 +4,7 @@
   "description": "Service that returns the validity of an EPUB",
   "main": "server/index.js",
   "scripts": {
-    "cz": "git-cz",
+    "cz": "node_modules/.bin/git-cz",
     "migrate": "pubsweet migrate",
     "server": "pubsweet start:server",
     "release": "standard-version",
@@ -45,9 +45,5 @@
       "path": "cz-customizable"
     }
   },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  }
+  "packageManager": "yarn@4.5.3"
 }

@@ -1,5 +1,7 @@
 FROM node:20.0.0-alpine3.16
 
+RUN corepack enable
+
 RUN apk update && apk add --no-cache git bash unzip openjdk11-jre-headless
 
 WORKDIR /home/node/epub-checker
@@ -11,7 +13,7 @@ USER node
 COPY --chown=node:node package.json ./package.json
 COPY --chown=node:node yarn.lock ./yarn.lock
 
-RUN yarn
+RUN yarn workspaces focus --production && yarn cache clean && rm -rf ~/.npm
 
 COPY --chown=node:node . .
 
