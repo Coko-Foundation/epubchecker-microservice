@@ -1,3 +1,6 @@
+# This file is meant for running a production build LOCALLY.
+# If you use the epubchecker microservice in production, use the pre-built image cokoapps/epubchecker
+
 services:
   server:
     build:
@@ -6,13 +9,20 @@ services:
     ports:
       - ${SERVER_PORT:-3000}:${SERVER_PORT:-3000}
     environment:
-      - PUBSWEET_SECRET=${PUBSWEET_SECRET}
-      - SERVER_PORT=${SERVER_PORT}
-      - SERVER_HOST=${SERVER_HOST}
-      - SERVER_PROTOCOL=${SERVER_PROTOCOL}
-      - POSTGRES_USER=${POSTGRES_USER}
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-      - POSTGRES_HOST=${POSTGRES_HOST}
-      - POSTGRES_DB=${POSTGRES_DB}
-      - POSTGRES_PORT=${POSTGRES_PORT}
       - NODE_ENV=production
+      - SECRET=${SECRET:-dev_secret}
+      - SERVER_PORT=${SERVER_PORT:-3000}
+      - POSTGRES_HOST=${POSTGRES_HOST:-db}
+      - POSTGRES_PORT=${POSTGRES_PORT:-5432}
+      - POSTGRES_DB=${POSTGRES_DB:-epub-checker_dev_db}
+      - POSTGRES_USER=${POSTGRES_USER:-epub-checker_user_dev}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-secretpassword}
+
+  db:
+    image: postgres:16
+    ports:
+      - ${POSTGRES_PORT:-5432}:5432
+    environment:
+      - POSTGRES_DB=${POSTGRES_DB:-epub-checker_dev_db}
+      - POSTGRES_USER=${POSTGRES_USER:-epub-checker_user_dev}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-secretpassword}

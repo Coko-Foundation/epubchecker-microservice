@@ -21,14 +21,12 @@
     "access": "public"
   },
   "dependencies": {
-    "@coko/server": "^3.8.1",
-    "@coko/service-auth": "^1.2.0",
-    "axios": "^0.21.1",
-    "config": "^3.3.2",
+    "@coko/server": "^4.2.0",
+    "@coko/service-auth": "^2.0.2",
+    "axios": "^1.7.9",
     "epubchecker": "^5.1.0",
     "fs-extra": "^9.0.1",
-    "multer": "^1.4.2",
-    "winston": "2"
+    "multer": "^1.4.2"
   },
   "devDependencies": {
     "@coko/lint": "^2.1.0",

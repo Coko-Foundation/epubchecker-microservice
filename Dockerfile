@@ -10,6 +10,7 @@ RUN chown -R node:node /home/node/epub-checker
 
 USER node
 
+COPY --chown=node:node .yarnrc.yml .
 COPY --chown=node:node package.json ./package.json
 COPY --chown=node:node yarn.lock ./yarn.lock
 
@@ -17,6 +18,4 @@ RUN yarn workspaces focus --production && yarn cache clean && rm -rf ~/.npm
 
 COPY --chown=node:node . .
 
-ENTRYPOINT ["sh", "./scripts/setupProdServer.sh"]
-
-CMD ["node", "./server/startServer.js"]
+CMD ["yarn", "coko-server", "start"]

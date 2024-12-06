@@ -8,47 +8,25 @@ services:
     ports:
       - ${SERVER_PORT:-3000}:${SERVER_PORT:-3000}
     environment:
-      - PUBSWEET_SECRET=${PUBSWEET_SECRET:-dev_secret}
+      - NODE_ENV=development
+      - SECRET=${SECRET:-dev_secret}
       - SERVER_PORT=${SERVER_PORT:-3000}
-      - SERVER_HOST=${SERVER_HOST:-server}
-      - SERVER_PROTOCOL=${SERVER_PROTOCOL:-http}
+      - POSTGRES_HOST=${POSTGRES_HOST:-db}
+      - POSTGRES_PORT=${POSTGRES_PORT:-5432}
+      - POSTGRES_DB=${POSTGRES_DB:-epub-checker_dev_db}
       - POSTGRES_USER=${POSTGRES_USER:-epub-checker_user_dev}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-secretpassword}
-      - POSTGRES_HOST=${POSTGRES_HOST:-db}
-      - POSTGRES_DB=${POSTGRES_DB:-epub-checker_dev_db}
-      - POSTGRES_PORT=${POSTGRES_PORT:-5432}
-      - NODE_ENV=development
-    entrypoint:
-      [
-        'sh',
-        'scripts/wait-for-it',
-        'db:5432',
-        '--',
-        'sh',
-        'scripts/setupDevServer.sh',
-      ]
-    command:
-      [
-        'node_modules/.bin/nodemon',
-        './server/startServer.js',
-        '--watch',
-        'server',
-        '--watch',
-        'config',
-        '--ext',
-        'js,graphql',
-      ]
+    command: ['yarn', 'coko-server', 'start-dev']
     volumes:
       - ./server:/home/node/epub-checker/server
       - ./config:/home/node/epub-checker/config
+    tty: true
 
   db:
-    image: postgres:14-alpine
+    image: postgres:16
     ports:
       - ${POSTGRES_PORT:-5432}:5432
     environment:
-      - POSTGRES_USER=${POSTGRES_USER:-epub-checker_user_dev}
       - POSTGRES_DB=${POSTGRES_DB:-epub-checker_dev_db}
+      - POSTGRES_USER=${POSTGRES_USER:-epub-checker_user_dev}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-secretpassword}
-    volumes:
-      - ./scripts/init-pgboss.sql:/docker-entrypoint-initdb.d/init-pgboss.sql
