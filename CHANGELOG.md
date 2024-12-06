@@ -1,3 +1,16 @@
+# [2.0.0](https://gitlab.coko.foundation/cokoapps/epub-checker/compare/v1.2.1...v2.0.0) (2024-12-06)
+
+
+### chore
+
+* upgrade to coko server v4 ([33500d9](https://gitlab.coko.foundation/cokoapps/epub-checker/commit/33500d9a4ed284471987643680e926ecd6f592c9))
+
+
+### BREAKING CHANGES
+
+* environment variable changes: renamed PUBSWEET_SECRET to SECRET, dropped SERVER_PROTOCOL and
+SERVER_HOST
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
