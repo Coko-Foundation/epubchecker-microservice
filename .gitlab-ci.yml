@@ -25,7 +25,7 @@ lint:
     - cd /home/node/epub-checker
     - yarn coko-lint run --skip-stylelint
 
-release:
+.release:
   stage: Release
   image: cokoapps/release-docker:20
   services:
