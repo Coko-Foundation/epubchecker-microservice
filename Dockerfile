@@ -1,8 +1,6 @@
-FROM node:20.0.0-alpine3.16
+FROM node:20-bookworm-slim
 
 RUN corepack enable
-
-RUN apk update && apk add --no-cache git bash unzip openjdk11-jre-headless
 
 WORKDIR /home/node/epub-checker
 
