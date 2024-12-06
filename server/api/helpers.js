@@ -22,8 +22,10 @@ const fileFilter = (req, file, cb) => {
     req.fileValidationError = 'Only EPUB files are allowed!'
     return cb(null, false)
   }
+
   return cb(null, true)
 }
+
 const uploadHandler = multer({ storage, fileFilter }).single('epub')
 
 module.exports = { uploadHandler }

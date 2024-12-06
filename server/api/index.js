@@ -7,4 +7,5 @@ const backend = app => {
   app.post('/api/epubchecker', authenticate, uploadHandler, epubChecker)
   app.post('/api/epubchecker/link', authenticate, epubCheckerLink)
 }
+
 module.exports = backend

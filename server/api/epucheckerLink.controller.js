@@ -17,6 +17,7 @@ const downloadEpub = (url, epubPath) =>
           .on('error', e => reject(e))
       }),
   )
+
 const objectKeyExtractor = url => {
   if (!url) {
     return undefined
@@ -28,10 +29,12 @@ const objectKeyExtractor = url => {
 
   return objectKey
 }
+
 const epubChecker = async (req, res) => {
   const { body } = req
   const { EPUBPath } = body
   const objectKey = objectKeyExtractor(EPUBPath)
+
   if (!objectKey) {
     return res.status(404).json({ message: 'no EPUB URL provided' })
   }
@@ -52,6 +55,7 @@ const epubChecker = async (req, res) => {
     await downloadEpub(EPUBPath, epubPath)
 
     logger.info(`running it through checker`)
+
     const report = await epubchecker(epubPath, {
       includeWarnings: true,
       // do not check font files
@@ -62,6 +66,7 @@ const epubChecker = async (req, res) => {
       checker: { nError },
       messages,
     } = report
+
     logger.info(`sending back the report`)
     return res.status(200).json({
       outcome: nError > 0 ? 'not valid' : 'ok',

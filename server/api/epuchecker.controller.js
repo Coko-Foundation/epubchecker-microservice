@@ -6,9 +6,11 @@ const epubChecker = async (req, res) => {
   if (!req.file) {
     return res.status(400).json({ msg: 'EPUB file is not included' })
   }
+
   if (req.fileValidationError) {
     return res.status(400).json({ msg: req.fileValidationError })
   }
+
   const { path: filePath } = req.file
   req.on('error', async err => {
     logger.error(err.message)
@@ -17,6 +19,7 @@ const epubChecker = async (req, res) => {
 
   try {
     logger.info(`running EPUB through checker`)
+
     const report = await epubchecker(filePath, {
       includeWarnings: true,
       // do not check font files
@@ -27,6 +30,7 @@ const epubChecker = async (req, res) => {
       checker: { nError },
       messages,
     } = report
+
     logger.info(`sending back the report`)
 
     return res.status(200).json({

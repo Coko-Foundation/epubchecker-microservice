@@ -4,21 +4,16 @@
   "description": "Service that returns the validity of an EPUB",
   "main": "server/index.js",
   "scripts": {
-    "cz": "node_modules/.bin/git-cz",
-    "migrate": "pubsweet migrate",
-    "server": "pubsweet start:server",
-    "release": "standard-version",
-    "create:client": "createServiceClient",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "cz": "./node_modules/.bin/lint-staged && node_modules/.bin/git-cz",
+    "create:client": "createServiceClient"
   },
   "repository": {
     "type": "git",
     "url": "https://gitlab.coko.foundation/cokoapps/epub-checker"
   },
   "keywords": [
-    "pubsweet",
-    "pubsweet-server",
-    "coko"
+    "coko",
+    "epub"
   ],
   "author": "Alexandros Georgantas",
   "license": "MIT",
@@ -36,7 +31,8 @@
     "winston": "2"
   },
   "devDependencies": {
-    "@coko/lint": "^0.0.2",
+    "@coko/lint": "^2.1.0",
+    "jest": "^29.7.0",
     "nodemon": "^2.0.6",
     "standard-version": "^7.1.0"
   },
