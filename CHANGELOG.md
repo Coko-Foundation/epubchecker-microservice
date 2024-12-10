@@ -1,3 +1,10 @@
+## [2.0.1](https://gitlab.coko.foundation/cokoapps/epub-checker/compare/v2.0.0...v2.0.1) (2024-12-10)
+
+
+### Bug Fixes
+
+* make sure java is installed on container ([b6b90b3](https://gitlab.coko.foundation/cokoapps/epub-checker/commit/b6b90b3f99ddb59cf2f4364cd1e79b65da4cd9c2))
+
 # [2.0.0](https://gitlab.coko.foundation/cokoapps/epub-checker/compare/v1.2.1...v2.0.0) (2024-12-06)
 
 
