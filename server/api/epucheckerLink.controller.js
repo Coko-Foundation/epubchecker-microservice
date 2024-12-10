@@ -1,5 +1,5 @@
 const fs = require('fs-extra')
-const { logger } = require('@coko/server')
+const { logger, tempFolderPath } = require('@coko/server')
 const epubchecker = require('epubchecker')
 const axios = require('axios')
 const path = require('path')
@@ -39,9 +39,7 @@ const epubChecker = async (req, res) => {
     return res.status(404).json({ message: 'no EPUB URL provided' })
   }
 
-  const epubDir = `${process.cwd()}/temp`
-  await fs.ensureDir(epubDir)
-  const epubPath = path.join(epubDir, `${objectKey}`)
+  const epubPath = path.join(tempFolderPath, `${objectKey}`)
 
   req.on('error', async err => {
     logger.error(err.message)

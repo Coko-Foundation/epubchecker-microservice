@@ -2,6 +2,13 @@ FROM node:20-bookworm-slim
 
 RUN corepack enable
 
+RUN apt-get update && \
+  apt-get install -y --no-install-recommends \
+  openjdk-17-jdk \
+  ca-certificates && \
+  apt-get clean && \
+  rm -rf /var/lib/apt/lists/*
+
 WORKDIR /home/node/epub-checker
 
 RUN chown -R node:node /home/node/epub-checker

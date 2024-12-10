@@ -1,11 +1,11 @@
 const multer = require('multer')
 const path = require('path')
-const fs = require('fs-extra')
+
+const { tempFolderPath } = require('@coko/server')
 
 const storage = multer.diskStorage({
   destination: async (req, file, cb) => {
-    await fs.ensureDir('temp/')
-    return cb(null, 'temp/')
+    return cb(null, tempFolderPath)
   },
 
   // By default, multer removes file extensions so let's add them back
