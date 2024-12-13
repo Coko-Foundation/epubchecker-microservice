@@ -1,3 +1,10 @@
+## [2.0.2](https://gitlab.coko.foundation/cokoapps/epub-checker/compare/v2.0.1...v2.0.2) (2024-12-13)
+
+
+### Bug Fixes
+
+* run create client from env script on startup ([d0deb48](https://gitlab.coko.foundation/cokoapps/epub-checker/commit/d0deb483f0059d55466e6ddca5443c23e069b38c))
+
 ## [2.0.1](https://gitlab.coko.foundation/cokoapps/epub-checker/compare/v2.0.0...v2.0.1) (2024-12-10)
 
 
