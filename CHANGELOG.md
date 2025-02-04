@@ -1,3 +1,10 @@
+## [2.0.3](https://gitlab.coko.foundation/cokoapps/epub-checker/compare/v2.0.2...v2.0.3) (2025-02-04)
+
+
+### Bug Fixes
+
+* fix postgres ssl connections ([2dd77cb](https://gitlab.coko.foundation/cokoapps/epub-checker/commit/2dd77cb05a28c63e0c2ef91016cb7489106ad683))
+
 ## [2.0.2](https://gitlab.coko.foundation/cokoapps/epub-checker/compare/v2.0.1...v2.0.2) (2024-12-13)
 
 
