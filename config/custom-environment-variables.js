@@ -7,6 +7,11 @@ module.exports = {
     database: 'POSTGRES_DB',
     user: 'POSTGRES_USER',
     password: 'POSTGRES_PASSWORD',
+    allowSelfSignedCertificates: {
+      __name: 'POSTGRES_ALLOW_SELF_SIGNED_CERTIFICATES',
+      __format: 'json',
+    },
+    caCert: 'POSTGRES_CA_CERT',
   },
 
   clientID: 'CLIENT_ID',

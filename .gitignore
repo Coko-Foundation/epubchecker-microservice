@@ -11,7 +11,7 @@ logs/*
 tmp/
 temp/
 uploads/*
-.env.*
+.env*
 
 # Yarn files
 .pnp.*
