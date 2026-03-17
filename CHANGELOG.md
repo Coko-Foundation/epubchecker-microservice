@@ -1,3 +1,10 @@
+## [2.0.4](https://github.com/Coko-Foundation/epubchecker-microservice/compare/v2.0.3...v2.0.4) (2026-03-17)
+
+
+### Bug Fixes
+
+* add github ci pipeline ([faf43d6](https://github.com/Coko-Foundation/epubchecker-microservice/commit/faf43d6364c06e5ad9e29a714211bfaf968e6807))
+
 ## [2.0.3](https://gitlab.coko.foundation/cokoapps/epub-checker/compare/v2.0.2...v2.0.3) (2025-02-04)
 
 
